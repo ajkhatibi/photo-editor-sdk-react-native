@@ -222,8 +222,8 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY
             options.allowFreeCrop = NO;
             options.allowedCropRatios = @[
                                           [[PESDKCropAspect alloc] initWithWidth:1 height:1 localizedName:@"Square" rotatable:NO],
-                                         [[PESDKCropAspect alloc] initWithWidth:3 height:2 localizedName:@"Landscape" rotatable:NO],
-                                         [[PESDKCropAspect alloc] initWithWidth:2 height:3 localizedName:@"Portrait" rotatable:NO]
+                                        //  [[PESDKCropAspect alloc] initWithWidth:3 height:2 localizedName:@"Landscape" rotatable:NO],
+                                        //  [[PESDKCropAspect alloc] initWithWidth:2 height:3 localizedName:@"Portrait" rotatable:NO]
                                           ];
         }];
 
@@ -262,7 +262,9 @@ RCT_EXPORT_METHOD(openCamera: (NSArray*) features options:(NSDictionary*) option
         }];
     }];
     
-    [currentViewController presentViewController:self.cameraController animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [currentViewController presentViewController:self.cameraController animated:YES completion:nil];
+    });
 }
 
 -(void)photoEditViewControllerDidCancel:(PESDKPhotoEditViewController *)photoEditViewController {
