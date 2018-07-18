@@ -90,7 +90,8 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY
     
     // Just an empty model
     PESDKPhotoEditModel* photoEditModel = [[PESDKPhotoEditModel alloc] init];
-    
+    photoEditModel.isAutoEnhancementEnabled = YES;
+
     // Build the menu items from the features array if present
     NSMutableArray<PESDKPhotoEditMenuItem *>* menuItems = [[NSMutableArray alloc] init];
     
