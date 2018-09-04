@@ -91,7 +91,7 @@ public class PESDKModule extends ReactContextBaseJavaModule {
                 case RESULT_CODE_PESDK: {
                     switch (resultCode) {
                         case Activity.RESULT_CANCELED:
-                            mPESDKPromise.reject(E_PESDK_CANCELED, "Editor was cancelled");
+                            //mPESDKPromise.reject(E_PESDK_CANCELED, "Editor was cancelled");
                             break;
                         case Activity.RESULT_OK:
                             String resultPath = data.getStringExtra(ImgLyIntent.RESULT_IMAGE_PATH);
